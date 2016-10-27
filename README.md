@@ -11,3 +11,7 @@ Inside the code once can find ccomments about the modifications of the original 
 ## Assigments 
 
 * [Forth Interperter](https://github.com/dapp1990/racketPrograms/tree/master/Assigments/ForthInterpreter)
+
+## Notes
+
+To run the raco command in Mac X El Capitan please refer to [the guide made by keyanzhang] (https://github.com/keyanzhang/c311-get-started)
