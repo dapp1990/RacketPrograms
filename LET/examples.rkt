@@ -59,3 +59,34 @@
 
 (define examples (list p1 p2 p3 p4 p5 p6 p7 p9 p10)) ; not p8 because it fails
 
+;;; -((-5) - 9)) <=> 14
+(define minus
+  (a-program (min-exp (diff-exp (min-exp (const-exp 5)) (const-exp 9)))))
+
+;;; -((-5) + 9)) <=> -4
+(define addition
+  (a-program (min-exp (add-exp (min-exp (const-exp 5)) (const-exp 9)))))
+
+;;; -((-5) * 9)) <=> 45
+(define multiplication
+  (a-program (min-exp (mul-exp (min-exp (const-exp 5)) (const-exp 9)))))
+
+;;; -((-10) / 9)) <=> 1
+(define quotient
+  (a-program (min-exp (quo-exp (min-exp (const-exp 10)) (const-exp 9)))))
+
+;;; 5 / 3 <=> 1
+(define t1
+  (a-program (quo-exp (const-exp 5) (const-exp 3))))
+
+;;; equal? 5 == 10
+(define equal-exp
+  (a-program (equal?-exp (const-exp 5) (const-exp 10))))
+
+;;; greater? 5 > 10
+(define greater-exp
+  (a-program (greater?-exp (const-exp 5) (const-exp 10))))
+
+;;; less? 5 < 10
+(define less-exp
+  (a-program (less?-exp (const-exp 5) (const-exp 10))))
