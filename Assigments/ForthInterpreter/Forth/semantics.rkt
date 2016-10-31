@@ -29,38 +29,19 @@
        (set-state-stack! a-state (cdr s))
        (car s))))
 
-;(define pop-stack
-;  (lambda (a-state)
-;    (let ((s (state-stack a-state)))
-;       (set-state-stack! a-state (helper2 s))
-;       (helper1 s))))
-;
-;(define helper1
-;  (lambda (list)
-;    (cond
-;      ((null? (cdr list)) (car list))
-;      (else (helper1 (cdr list))))))
-;
-;(define helper2
-;  (lambda (list)
-;    (cond
-;      ((null? (cdr list)) '())
-;      (else (cons (car list) (helper2 (cdr list)))))))
 
-;(define helper1
-;  (lambda (list)
-;    (cond
-;      ((null? (cdr list)) '())
-;      (else (cons (car list) (helper1 (cdr list)))))))
 
 ; dum-stack: State -> String
 ; usage: dum-stack(a-state) = prints the values of the stack
-;(define dum-stack
-;    (lambda (a-state)
-;      (cond
-;        ((eqv? (state-stack a-state) '()) "")
-;       (else (string-append (car (state-stack a-state)) (dum-stack   a-state
+(define dum-stack
+    (lambda (a-state)
+      (let ((s (state-stack a-state))) (helper s))))
 
+(define helper
+  (lambda (list)
+    (cond
+       ((null? list) "")
+       (else (string-append (number->string (car list)) " "  (helper (cdr list)))))))
 
 ; get-word: Scheme X State -> Undefine
 ; usage: get-word(name a-state) = searches in the words hash table.

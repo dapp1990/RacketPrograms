@@ -16,9 +16,10 @@
          =
          word
          call
-         (rename-out [my-module-begin #%module-begin]
-                     [my-top-interaction #%top-interaction]
-                     [my-datum #%datum]))
+         ;(rename-out [my-module-begin #%module-begin]
+         ;            [my-top-interaction #%top-interaction]
+         ;            [my-datum #%datum])
+         )
 
 ; Define an anchor within this namespace so that eval can use to
 ; perform within the right context (aka one that understands (num 1) and so on)
@@ -54,3 +55,28 @@
 ; Define and implement the syntax rules for (dump), (num v),
 ; (word name body ...), (plus), (min), (mul), (div), (swap), (drop), (pp), (=)
 ; Implement (call name)
+
+; dump: State -> State
+; usage: dump(a-state) = prints the elements of the stack from top to bottom to the screen,
+; left to right
+(define dump
+  (lambda (state)
+    (dum-stack state)))
+
+; num: Integer -> Integer
+; usage: num(a-state) = returns an integer number
+(define num
+  (lambda (n) n))
+
+; plus Integer -> Integer
+; usage: plus(a-state) = returns an integer number
+(define plus
+  (lambda (n) n))
+
+; swap: State -> State
+; usage: swap(a-state) = interchanges the top two elements
+(define swap
+  (lambda (state)
+    (let
+        ((x (pop-stack state)) (y (pop-stack state)))
+      ((push-stack x state) (push-stack y state)))))

@@ -3,7 +3,7 @@
 (require rackunit/gui)
 (require rackunit/text-ui)
 (require "./semantics.rkt")
-;(require "./language.rkt")
+(require "./language.rkt")
 ;(require "./parser.rkt")
 
 ; Some rudimentary tests for `semantics.rkt`
